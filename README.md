@@ -1,30 +1,59 @@
-# React + TypeScript + Vite
+# Transformación Solidaria
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**React + TypeScript + Vite | Private project repository**
 
-Currently, two official plugins are available:
+## Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This repository is associated with a personal website project for an educational institute. The current `main` branch contains an **early React/TypeScript scaffold**, not a complete representation of the finished website.
 
-## Expanding the ESLint configuration
+This README documents what is currently present in the repository. Features, screenshots, and a live demo can be added after the complete project source has been located and reviewed.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Current Repository Contents
 
-- Configure the top-level `parserOptions` property like this:
+- React application bootstrapped with Vite
+- TypeScript configuration
+- Basic UI component examples in `src/components/`
+- Development and build scripts
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+## Tech Stack
+
+- React 18
+- TypeScript
+- Vite
+- CSS
+
+## Getting Started
+
+Requires a compatible version of Node.js and npm.
+
+```bash
+npm install
+npm run dev
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+Build the application:
+
+```bash
+npm run build
+```
+
+Preview a production build:
+
+```bash
+npm run preview
+```
+
+## Portfolio Publication Checklist
+
+Before considering this repository for a public portfolio:
+
+- [ ] Locate and commit the actual institute website source code, if available and authorized for publication
+- [ ] Remove credentials, secrets, personal data, and any confidential client assets
+- [ ] Confirm permission to publish institute branding, images, and content
+- [ ] Add accurate feature descriptions and screenshots
+- [ ] Verify the installation and build instructions
+- [ ] Add a live demo link only if an accessible deployment exists
+
+## Status
+
+**Private — documentation in progress.** Do not interpret the current scaffold as the completed institute website.

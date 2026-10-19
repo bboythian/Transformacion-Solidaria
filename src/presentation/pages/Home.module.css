@@ -1,0 +1,209 @@
+/**
+ * Estilos Home
+ */
+
+.programasSection {
+  padding: 4rem 2rem;
+  background-color: white;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.sectionTitle {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin: 0 0 2rem 0;
+  color: white;
+  text-align: center;
+}
+
+.sectionSubtitle {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.9);
+  text-align: center;
+  margin: 0 0 2rem 0;
+}
+
+.programasGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.noResults {
+  text-align: center;
+  color: #999;
+  padding: 2rem;
+  font-size: 1.1rem;
+  grid-column: 1 / -1;
+}
+
+.quienesSomosSection {
+  padding: 4rem 2rem;
+  background: linear-gradient(135deg, #004270 0%, #003a5c 100%);
+  color: white;
+}
+
+.sectionDescription {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.9);
+  text-align: center;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.quienesSomosContent {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+}
+
+.videoContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.videoWrapper {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  background-color: #000;
+}
+
+.presentationVideo {
+  width: 100%;
+  height: auto;
+  display: block;
+  cursor: pointer;
+}
+
+.presentationVideo:focus {
+  outline: 3px solid #febe10;
+  outline-offset: 2px;
+}
+
+.videoCaption {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  font-style: italic;
+}
+
+.misionVisionContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.misionCard,
+.visionCard {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  padding: 2rem;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.misionCard:hover,
+.visionCard:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  border-color: rgba(254, 190, 16, 0.5);
+  transform: translateY(-2px);
+}
+
+.cardIcon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.misionCard h3,
+.visionCard h3 {
+  font-size: 1.4rem;
+  text-align: center;
+  margin: 0 0 1rem 0;
+  font-weight: 600;
+  color: #febe10;
+}
+
+.misionCard p,
+.visionCard p {
+  margin: 0;
+  font-size: 1rem;
+  opacity: 0.95;
+  line-height: 1.7;
+  text-align: justify;
+}
+
+@media (max-width: 768px) {
+  .programasSection {
+    padding: 2rem 1.5rem;
+  }
+
+  .quienesSomosSection {
+    padding: 2rem 1.5rem;
+  }
+
+  .sectionTitle {
+    font-size: 1.8rem;
+  }
+
+  .programasGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .quienesSomosContent {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .videoWrapper {
+    max-width: 100%;
+  }
+
+  .misionVisionContainer {
+    gap: 1.5rem;
+  }
+
+  .misionCard,
+  .visionCard {
+    padding: 1.5rem;
+  }
+
+  .cardIcon {
+    font-size: 2rem;
+  }
+
+  .misionCard h3,
+  .visionCard h3 {
+    font-size: 1.2rem;
+  }
+
+  .misionCard p,
+  .visionCard p {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 1024px) and (min-width: 769px) {
+  .quienesSomosContent {
+    gap: 3rem;
+  }
+
+  .videoWrapper {
+    max-width: 400px;
+  }
+}

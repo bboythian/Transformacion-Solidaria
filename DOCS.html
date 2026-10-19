@@ -1,0 +1,526 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Transformación Solidaria - Documentación Frontend</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
+          Cantarell, sans-serif;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+        padding: 2rem;
+        color: #333;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      header {
+        text-align: center;
+        color: white;
+        margin-bottom: 3rem;
+      }
+
+      header h1 {
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
+      }
+
+      header p {
+        font-size: 1.1rem;
+        opacity: 0.9;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-bottom: 3rem;
+      }
+
+      .card {
+        background: white;
+        border-radius: 12px;
+        padding: 2rem;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        transition:
+          transform 0.3s,
+          box-shadow 0.3s;
+      }
+
+      .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+      }
+
+      .card h2 {
+        color: #667eea;
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 1.5rem;
+      }
+
+      .card p {
+        color: #666;
+        line-height: 1.6;
+        margin-bottom: 1rem;
+      }
+
+      .card-list {
+        list-style: none;
+      }
+
+      .card-list li {
+        padding: 0.5rem 0;
+        border-bottom: 1px solid #eee;
+      }
+
+      .card-list li:last-child {
+        border-bottom: none;
+      }
+
+      .card-list a {
+        color: #667eea;
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s;
+      }
+
+      .card-list a:hover {
+        color: #764ba2;
+        text-decoration: underline;
+      }
+
+      .badge {
+        display: inline-block;
+        background: #667eea;
+        color: white;
+        padding: 0.25rem 0.75rem;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        margin-right: 0.5rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .badge.primary {
+        background: #667eea;
+      }
+
+      .badge.secondary {
+        background: #764ba2;
+      }
+
+      .badge.success {
+        background: #52c41a;
+      }
+
+      .badge.warning {
+        background: #faad14;
+      }
+
+      .badge.danger {
+        background: #ff4d4f;
+      }
+
+      .emoji {
+        font-size: 1.5rem;
+        margin-right: 0.5rem;
+      }
+
+      .section-title {
+        color: white;
+        font-size: 2rem;
+        margin: 3rem 0 1.5rem 0;
+        text-align: center;
+      }
+
+      .quick-links {
+        background: white;
+        border-radius: 12px;
+        padding: 2rem;
+        margin-bottom: 2rem;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      }
+
+      .quick-links h3 {
+        color: #667eea;
+        margin-bottom: 1rem;
+      }
+
+      .quick-links-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem;
+      }
+
+      .quick-link {
+        background: #f5f5f5;
+        padding: 1rem;
+        border-radius: 8px;
+        text-align: center;
+        transition: all 0.3s;
+      }
+
+      .quick-link:hover {
+        background: #667eea;
+        color: white;
+      }
+
+      .quick-link a {
+        color: inherit;
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      footer {
+        background: rgba(255, 255, 255, 0.1);
+        color: white;
+        text-align: center;
+        padding: 2rem;
+        border-radius: 12px;
+        backdrop-filter: blur(10px);
+      }
+
+      .stats {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 1rem;
+        margin-bottom: 2rem;
+      }
+
+      .stat {
+        background: white;
+        padding: 1.5rem;
+        border-radius: 8px;
+        text-align: center;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .stat-number {
+        font-size: 2rem;
+        font-weight: bold;
+        color: #667eea;
+      }
+
+      .stat-label {
+        color: #666;
+        font-size: 0.9rem;
+        margin-top: 0.5rem;
+      }
+
+      @media (max-width: 768px) {
+        header h1 {
+          font-size: 1.8rem;
+        }
+
+        .grid {
+          grid-template-columns: 1fr;
+        }
+
+        .section-title {
+          font-size: 1.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- Header -->
+      <header>
+        <h1>📖 Transformación Solidaria</h1>
+        <p>Frontend Documentation & Architecture Guide</p>
+      </header>
+
+      <!-- Stats -->
+      <div class="stats">
+        <div class="stat">
+          <div class="stat-number">53+</div>
+          <div class="stat-label">Archivos Creados</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">5</div>
+          <div class="stat-label">Páginas</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">14</div>
+          <div class="stat-label">Componentes</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">5</div>
+          <div class="stat-label">Custom Hooks</div>
+        </div>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="quick-links">
+        <h3>🚀 Comienza Aquí</h3>
+        <div class="quick-links-grid">
+          <div class="quick-link">
+            <a href="#quickstart">⚡ Quick Start</a>
+          </div>
+          <div class="quick-link">
+            <a href="#summary">📋 Resumen</a>
+          </div>
+          <div class="quick-link">
+            <a href="#guide">📖 Guía Completa</a>
+          </div>
+          <div class="quick-link">
+            <a href="#contribute">👨‍💻 Contribuir</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Content -->
+      <div class="section-title" id="quickstart">
+        ⚡ Quick Start (5 minutos)
+      </div>
+      <div class="grid">
+        <div class="card">
+          <h2><span class="emoji">🏃</span>Empieza Ahora</h2>
+          <p>Corre el proyecto en 5 minutos con estos comandos:</p>
+          <ul class="card-list">
+            <li><a href="QUICKSTART.md">📄 QUICKSTART.md</a></li>
+            <li>Código listo para ejecutar</li>
+            <li>FAQs rápidas incluidas</li>
+            <li><span class="badge primary">EMPIEZA AQUÍ</span></li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h2><span class="emoji">📊</span>Estructura Visual</h2>
+          <p>Entiende cómo funciona el proyecto:</p>
+          <ul class="card-list">
+            <li><a href="PROJECT_STRUCTURE.ts">📁 PROJECT_STRUCTURE.ts</a></li>
+            <li>Árbol de carpetas completo</li>
+            <li>Mapeo de rutas</li>
+            <li><span class="badge success">Recomendado</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="section-title" id="summary">📋 Resumen & Overview</div>
+      <div class="grid">
+        <div class="card">
+          <h2><span class="emoji">📋</span>Resumen Ejecutivo</h2>
+          <p>Visión general completa del proyecto:</p>
+          <ul class="card-list">
+            <li><a href="PROJECT_SUMMARY.md">📄 PROJECT_SUMMARY.md</a></li>
+            <li>Estadísticas del proyecto</li>
+            <li>Capas de arquitectura</li>
+            <li>Próximos pasos prioridad</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h2><span class="emoji">🏗️</span>Arquitectura</h2>
+          <p>Documentación técnica detallada:</p>
+          <ul class="card-list">
+            <li>
+              <a href="ARCHITECTURE_GUIDE.ts">🎨 ARCHITECTURE_GUIDE.ts</a>
+            </li>
+            <li>Explicación de capas</li>
+            <li>Componentes principales</li>
+            <li><span class="badge secondary">Profundo</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="section-title" id="guide">📖 Guías Completas</div>
+      <div class="grid">
+        <div class="card">
+          <h2><span class="emoji">📖</span>Guía de Uso</h2>
+          <p>Todo lo que necesitas saber para usar el proyecto:</p>
+          <ul class="card-list">
+            <li>
+              <a href="FRONTEND_USAGE_GUIDE.md">📄 FRONTEND_USAGE_GUIDE.md</a>
+            </li>
+            <li>Inicio rápido detallado</li>
+            <li>Custom Hooks explicados</li>
+            <li>Cómo agregar nuevas páginas</li>
+            <li>Debugging tips</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h2><span class="emoji">🔗</span>API Reference</h2>
+          <p>Documentación de endpoints y servicios:</p>
+          <ul class="card-list">
+            <li><a href="API_REFERENCE.md">📄 API_REFERENCE.md</a></li>
+            <li>
+              <span class="badge primary">POST GET</span> Todos los endpoints
+            </li>
+            <li>Parámetros y respuestas</li>
+            <li>Testing con Postman</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h2><span class="emoji">📊</span>Diagramas Visuales</h2>
+          <p>Flujos y arquitectura en forma visual:</p>
+          <ul class="card-list">
+            <li>
+              <a href="COMPONENT_FLOW_DIAGRAM.md"
+                >📄 COMPONENT_FLOW_DIAGRAM.md</a
+              >
+            </li>
+            <li>Árbol de componentes</li>
+            <li>Data flow diagrams</li>
+            <li>Responsive breakdown</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h2><span class="emoji">🎨</span>Diagr. Mermaid</h2>
+          <p>Diagramas interactivos de arquitectura:</p>
+          <ul class="card-list">
+            <li>
+              <a href="ARCHITECTURE_DIAGRAMS.md">📄 ARCHITECTURE_DIAGRAMS.md</a>
+            </li>
+            <li>10+ diagramas Mermaid</li>
+            <li>Ver en mermaid.live</li>
+            <li><span class="badge success">Muy útil</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="section-title" id="contribute">
+        👨‍💻 Contribuir & Desarrollo
+      </div>
+      <div class="grid">
+        <div class="card">
+          <h2><span class="emoji">👨‍💻</span>Guía de Contribución</h2>
+          <p>Cómo agregar features y mejorar el código:</p>
+          <ul class="card-list">
+            <li>
+              <a href="CONTRIBUTING_GUIDE.md">📄 CONTRIBUTING_GUIDE.md</a>
+            </li>
+            <li><span class="badge warning">TODO checklist</span></li>
+            <li>Cómo agregar hooks, servicios, páginas</li>
+            <li>Git workflow</li>
+            <li>Estándares de código</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h2><span class="emoji">📚</span>Índice de Docs</h2>
+          <p>Navegación y búsqueda de documentación:</p>
+          <ul class="card-list">
+            <li>
+              <a href="DOCUMENTATION_INDEX.md">📄 DOCUMENTATION_INDEX.md</a>
+            </li>
+            <li>Guía rápida por tarea</li>
+            <li>Búsqueda por concepto</li>
+            <li>Recursos externos</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="section-title">📁 Estructura de Carpetas</div>
+      <div class="grid">
+        <div class="card">
+          <h2><span class="emoji">📁</span>src/domain</h2>
+          <p>
+            <span class="badge primary">ENTITIES</span>
+            <span class="badge primary">INTERFACES</span>
+          </p>
+          <p>Lógica de negocio y entidades del dominio</p>
+        </div>
+
+        <div class="card">
+          <h2><span class="emoji">🔌</span>src/data</h2>
+          <p>
+            <span class="badge primary">SERVICES</span>
+            <span class="badge primary">REPOSITORIES</span>
+          </p>
+          <p>Comunicación con API y base de datos</p>
+        </div>
+
+        <div class="card">
+          <h2><span class="emoji">⚙️</span>src/infrastructure</h2>
+          <p>
+            <span class="badge primary">HOOKS</span>
+            <span class="badge primary">ROUTER</span>
+          </p>
+          <p>Utilidades, hooks y configuración</p>
+        </div>
+
+        <div class="card">
+          <h2><span class="emoji">🎨</span>src/presentation</h2>
+          <p>
+            <span class="badge primary">COMPONENTS</span>
+            <span class="badge primary">PAGES</span>
+          </p>
+          <p>UI, componentes y páginas React</p>
+        </div>
+      </div>
+
+      <div class="section-title">📱 Páginas de la App</div>
+      <div class="grid">
+        <div class="card">
+          <h2><span class="emoji">🏠</span>Home</h2>
+          <p><code>/</code></p>
+          <p>Página principal con hero + programas</p>
+          <span class="badge success">✅ Implementada</span>
+        </div>
+
+        <div class="card">
+          <h2><span class="emoji">📚</span>Oferta</h2>
+          <p><code>/oferta</code></p>
+          <p>Oferta académica</p>
+          <span class="badge warning">📝 Placeholder</span>
+        </div>
+
+        <div class="card">
+          <h2><span class="emoji">🎓</span>Preuniversitario</h2>
+          <p><code>/preuniversitario</code></p>
+          <p>Cursos de preuniversitario</p>
+          <span class="badge warning">📝 Placeholder</span>
+        </div>
+
+        <div class="card">
+          <h2><span class="emoji">🏛️</span>Quiénes Somos</h2>
+          <p><code>/quienes-somos</code></p>
+          <p>Información del instituto</p>
+          <span class="badge warning">📝 Placeholder</span>
+        </div>
+
+        <div class="card">
+          <h2><span class="emoji">📬</span>Contacto</h2>
+          <p><code>/contacto</code></p>
+          <p>Formulario de contacto</p>
+          <span class="badge success">✅ Implementada</span>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <footer>
+        <p><strong>Transformación Solidaria - Frontend v1.0</strong></p>
+        <p>Clean Architecture + React 18 + TypeScript + Vite</p>
+        <p style="margin-top: 1rem; opacity: 0.8">
+          📖
+          <a
+            href="DOCUMENTATION_INDEX.md"
+            style="color: white; text-decoration: underline"
+            >Ver Índice Completo</a
+          >
+        </p>
+        <p style="margin-top: 1rem; font-size: 0.9rem">
+          Última actualización: 2024
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>

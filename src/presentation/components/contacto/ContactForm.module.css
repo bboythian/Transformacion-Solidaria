@@ -1,0 +1,258 @@
+/**
+ * Estilos ContactForm
+ */
+
+.formContainer {
+  padding: 4rem 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+  background: white;
+  backdrop-filter: blur(2px);
+  border: 1px solid rgba(254, 190, 16, 0.4);
+  border-radius: 16px;
+  box-shadow:
+    0 14px 34px rgba(0, 30, 52, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.16);
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem 0;
+  /* color: #febe10; */
+  color: #003a5c;
+  text-align: center;
+  /* text-shadow: 1px 1px 0 rgba(0, 58, 92, 0.55); */
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  color: #003a5c;
+  text-align: center;
+  margin: 0 0 1.25rem 0;
+}
+
+.frameCard {
+  position: relative;
+  border: 1px solid rgba(0, 66, 112, 0.18);
+  border-top: 4px solid #febe10;
+  border-radius: 16px;
+  background-color: #ffffff;
+  overflow: hidden;
+  box-shadow: 0 12px 30px rgba(0, 66, 112, 0.2);
+}
+
+.frameCard::before {
+  content: "";
+  position: absolute;
+  top: -48%;
+  right: -22%;
+  width: 56%;
+  height: 120%;
+  background: rgba(254, 190, 16, 0.2);
+  border-radius: 50% 0% 50% 0%;
+  transform: rotate(-16deg);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.frameCard::after {
+  content: "";
+  position: absolute;
+  bottom: -48%;
+  left: -24%;
+  width: 42%;
+  height: 84%;
+  background: rgba(254, 190, 16, 0.16);
+  border-radius: 0% 50% 0% 50%;
+  transform: rotate(20deg);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.frameHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  background-color: #003a5c;
+  border-bottom: 1px solid rgba(254, 190, 16, 0.28);
+  position: relative;
+  z-index: 2;
+}
+
+.frameLabel {
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #febe10;
+}
+
+.secureBadge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.35rem 0.6rem;
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: #003a5c;
+  border: 1px solid rgba(254, 190, 16, 0.45);
+  border-radius: 999px;
+  background-color: #febe10;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.formGroup label {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #333;
+  font-size: 0.95rem;
+}
+
+.formGroup input,
+.formGroup textarea {
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  transition: border-color 0.3s ease;
+}
+
+.formGroup input:focus,
+.formGroup textarea:focus {
+  outline: none;
+  border-color: #004270;
+  box-shadow: 0 0 0 3px rgba(0, 66, 112, 0.1);
+}
+
+.formGroup input:disabled,
+.formGroup textarea:disabled {
+  background-color: #f5f5f5;
+  cursor: not-allowed;
+}
+
+.submitButton {
+  background-color: #004270;
+  color: white;
+  border: none;
+  padding: 1rem;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 1rem;
+}
+
+.submitButton:hover:not(:disabled) {
+  background-color: #003a5c;
+}
+
+.submitButton:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.successMessage {
+  background-color: #d4edda;
+  border: 1px solid #c3e6cb;
+  border-radius: 4px;
+  padding: 1rem;
+  color: #155724;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-weight: 500;
+}
+
+/* Nuevo contenedor para el iframe */
+.iframeWrapper {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.googleIframe {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 740px;
+  border: none;
+  border-radius: 0;
+  background-color: #fff;
+  display: block;
+  transition: filter 0.3s ease;
+}
+
+.frameCard:hover .googleIframe {
+  filter: saturate(1.04);
+}
+
+/* Para pantallas pequeñas */
+@media (max-width: 768px) {
+  .frameHeader {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .frameCard {
+    border-radius: 16px;
+  }
+
+  .frameCard::before {
+    top: -40%;
+    right: -30%;
+    width: 72%;
+  }
+
+  .frameCard::after {
+    bottom: -42%;
+    left: -30%;
+    width: 54%;
+  }
+
+  .googleIframe {
+    height: 860px;
+  }
+}
+
+@media (max-width: 768px) {
+  .formContainer {
+    padding: 2rem 1.5rem;
+    border-radius: 12px;
+  }
+
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .subtitle {
+    margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .formContainer {
+    padding: 1.5rem 1rem;
+  }
+
+  .frameHeader {
+    padding: 0.65rem 0.8rem;
+  }
+
+  .googleIframe {
+    height: 920px;
+  }
+}

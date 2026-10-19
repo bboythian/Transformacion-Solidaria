@@ -1,0 +1,65 @@
+/**
+ * Estilos Página Contacto
+ */
+
+.container {
+  position: relative;
+  overflow: hidden;
+  padding: 3rem 2rem;
+  background: linear-gradient(135deg, #004270 0%, #005a96 100%);
+}
+
+.container::before,
+.container::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.container::before {
+  top: -22%;
+  right: -12%;
+  width: 55%;
+  height: 120%;
+  background: #febe10;
+  border-radius: 50% 0% 50% 0%;
+  transform: rotate(-15deg);
+  opacity: 0.95;
+}
+
+.container::after {
+  bottom: -32%;
+  left: -16%;
+  width: 40%;
+  height: 84%;
+  background: #febe10;
+  border-radius: 0% 50% 0% 50%;
+  transform: rotate(20deg);
+  opacity: 0.95;
+}
+
+.container > * {
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 2rem 1.5rem;
+  }
+
+  .container::before {
+    width: 68%;
+    height: 95%;
+    top: -25%;
+    right: -26%;
+  }
+
+  .container::after {
+    width: 55%;
+    height: 68%;
+    bottom: -24%;
+    left: -24%;
+  }
+}
